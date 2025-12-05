@@ -1,0 +1,35 @@
+.todo-container {
+  flex: 1;
+  padding: 16px 40px;
+  background: white;
+  overflow-y: auto;
+ 
+}
+.todo-navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+   
+}
+.todo-navbar__left{
+  display: flex;
+  gap: 15px;
+
+}
+.todo-task{
+
+  padding: 4rem 4rem;
+}
+.todo-task h1{
+ font-size: 2rem;
+}
+
+.todo-task .feature{
+  color: rgb(140, 40, 40);
+  margin-top: 20px;
+}
+.todo-task .feature:hover{
+  background-color: transparent;
+  color: crimson;
+}

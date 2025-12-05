@@ -1,0 +1,101 @@
+.list-navbar {
+  width: 300px;
+  background-color: rgb(237, 236, 236);
+  height: 100vh;
+
+
+  transition: width 0.3s ease;
+  z-index: 100;
+  display: inline-block;
+}
+
+.list-navbar.closed {
+ 
+ width: 0;
+}
+
+
+.list-navbar__container{
+ width: auto;
+ height: 60px;
+ 
+ padding: 20px;
+ display: flex;
+ justify-content:space-between ;
+}
+
+.list-navbar__profile{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+.list-navbar__noti{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+.list-navbar__profile-logo {
+  width: 180px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+ gap:8px;
+  transition: all 0.3s ease; /* smooth animation */
+}
+
+.list-navbar__profile-logo:hover {
+  background-color: rgb(206, 205, 205);
+ 
+ 
+}
+
+
+.list-navbar__addTask{
+ display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem ;
+  
+  
+}
+.list-navbar__addTask a{
+  color: crimson;
+  
+}
+.list-navbar__addTask button{
+  color: rgb(158, 2, 33);
+}
+
+.list-navbar__feature{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem ;
+  gap: 15px;
+}
+.feature{
+  display: flex;
+  column-gap:10px ;
+  align-items: center;
+}
+.feature:hover{
+  background-color:rgb(206, 205, 205) ;
+  border-radius: 5px;
+}
+.toggle {
+  position: fixed;
+  top: 20px;
+  cursor: pointer;
+  z-index: 150;
+  transition: left 0.3s ease; 
+}
+
+.toggle.open {
+  left: 270px;
+}
+
+.toggle.closed {
+  left: 15px; 
+}
