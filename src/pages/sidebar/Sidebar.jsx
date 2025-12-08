@@ -13,17 +13,8 @@ import { CiCircleCheck } from "react-icons/ci";
 import React,{useState} from 'react'
 import { VscLayoutSidebarRight } from "react-icons/vsc";
 import { VscLayoutSidebarLeft } from "react-icons/vsc";
+import List from '../../components/List';
 
-const Feature = (props) => {
-  const Icon = props.icon;
-  const name = props.name; // vea yor domlai pi icon 1 1 
-  return (
-    <div className='feature'>
-      <button><Icon size={20} /></button>
-      <button>{name}</button>
-    </div>
-  );
-};
 
 const Sidebar = () => {
  
@@ -55,16 +46,16 @@ const [toggle,setToggle] =useState(true)
         </div>
 
         <div className='list-navbar__addTask'>
-          <Feature icon={FaCirclePlus} name="Add Task" />
+          <List icon={FaCirclePlus} name="Add Task" />
         </div>
 
         <div className='list-navbar__feature'>
-          <Feature icon={CiSearch} name="Search" />
-          <Feature icon={BsInbox} name="Inbox" />
-          <Feature icon={IoToday} name="Today" />
-          <Feature icon={SlCalender} name="Upcoming" />
-          <Feature icon={CiBoxList} name="Filter & Label" />
-          <Feature icon={CiCircleCheck} name="Checked" />
+          <List icon={CiSearch} name="Search" />
+          <List icon={BsInbox} name="Inbox" />
+          <List icon={IoToday} name="Today" />
+          <List icon={SlCalender} name="Upcoming" />
+          <List icon={CiBoxList} name="Filter & Label" />
+          <List icon={CiCircleCheck} name="Checked" />
         </div>
       </nav>
 </div>

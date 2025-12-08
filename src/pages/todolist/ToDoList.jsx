@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './todolist.css';
 import { FaSlideshare } from "react-icons/fa";
 import { BsPcDisplay } from "react-icons/bs";
@@ -8,21 +8,22 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { CiShare1 } from "react-icons/ci";
 import { CiBoxList } from "react-icons/ci";
-const Feature = (props) => {
-  const Icon = props.icon;
-  const name = props.name; // vea yor domlai pi icon 1 1 
-  return (
-    <div className='feature'>
-      <button><Icon size={20} /></button>
-      <button>{name}</button>
-    </div>
-  );
-};
+import List from '../../components/List';
 
 const ToDoList = () => {
-  const [task, setTask] = useState([{ text: 'dada', time: new Date() }]);
-  const [newTask, setNewTask] = useState("");
+ const [task, setTask] = useState(() => {
+  const saved = localStorage.getItem("tasks");
+  return saved ? JSON.parse(saved) : []; 
+});
 
+
+  const [newTask, setNewTask] = useState("");
+ 
+
+useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(task));
+}, [task]);
+//JSON.stringify(task) return array to string
 
 
   function handleInputChange(event) {
@@ -31,7 +32,7 @@ const ToDoList = () => {
 
   function addTask() {
     if (newTask.trim() !== "") {
-      setTask(t => [...t, { text: newTask, time: new Date() }]);
+      setTask(t => [...t, { text: newTask,time:new Date() }]);
       setNewTask("");
 
     }
@@ -51,10 +52,12 @@ const ToDoList = () => {
           <p>My Project/</p>
       </div>
       <div className='todo-navbar__left'>
-         <Feature icon={CiShare1 } name="Search" /> 
-         <Feature icon={CiBoxList } name="Display" />
-          <Feature icon={FaRegComments} name="" /> 
-          <Feature icon={ BiDotsHorizontal} name="" />
+         <List icon={CiShare1 } name="Search" /> 
+         <List icon={CiBoxList } name="Display" />
+          <List icon={FaRegComments} name="" /> 
+          <List icon={ BiDotsHorizontal} name="" />
+         
+        
       </div> 
           
     </div>
@@ -65,7 +68,7 @@ const ToDoList = () => {
           <div className='add-input'>
             <input
               type="text"
-              placeholder='Enter something...'
+              placeholder='Enter something..................'
               value={newTask}
               onChange={handleInputChange}
               onKeyDown= {(e)=>
@@ -86,7 +89,7 @@ const ToDoList = () => {
           {task.map((t, index) => (
             <div key={index} className='list'>
               <span>{t.text}</span>
-              <span className="time">{t.time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              <span className="time">{new Date(t.time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                 <button className='delete-btn' onClick={() => deleteTask(index)}>
                 <MdDelete size={15} />
               </button>

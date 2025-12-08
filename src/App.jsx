@@ -1,13 +1,13 @@
 import React from 'react'
-import { Sidebar } from './container'
-import { ToDoList } from './components'
+import { Sidebar } from './pages'
+import { ToDoList } from './pages'
 import './App.css'
 
 const App = () => {
 
   return (
     <div className='app-layout'>
-       <Sidebar />
+     <Sidebar />
       <ToDoList/>
     </div>
   )

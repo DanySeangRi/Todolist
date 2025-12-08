@@ -3,23 +3,27 @@
   padding: 16px 40px;
   background: white;
   overflow-y: auto;
- 
+
 }
 .todo-navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-   
+   align-items: center;
+  
 }
+
+
 .todo-navbar__left{
   display: flex;
   gap: 15px;
 
 }
 .todo-task{
-
+  background-color: rgb(203, 203, 204);
   padding: 4rem 4rem;
+  border-radius: 20px;
 }
 .todo-task h1{
  font-size: 2rem;
@@ -40,10 +44,11 @@
   padding: 10px;
   background-color: white ;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.336);
-justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.336);
+  justify-content: space-between;
   display: flex;
   align-items: center;
+  border-radius:5px ;
 }
 .list button{
 color: rgb(139, 23, 5);
