@@ -3,14 +3,14 @@
   background-color: rgb(237, 236, 236);
   height: 100vh;
   transition: width 0.3s ease;
+  overflow: hidden;
   z-index: 100;
   display: inline-block;
 }
 
 .list-navbar.closed {
- width: 0;
+ width: 0px;
 }
-
 
 .list-navbar__container{
  width: auto;
@@ -40,7 +40,7 @@
   display: flex;
   align-items: center;
  gap:8px;
-  transition: all 0.3s ease; /* smooth animation */
+  transition: all 0.3s ease;
 }
 
 .list-navbar__profile-logo:hover {

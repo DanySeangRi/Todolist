@@ -1,29 +1,13 @@
 .todo-container {
   flex: 1;
   padding: 16px 40px;
-  background: white;
   overflow-y: auto;
-
-}
-.todo-navbar{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-   align-items: center;
-  
 }
 
-
-.todo-navbar__left{
-  display: flex;
-  gap: 15px;
-
-}
 .todo-task{
-  background-color: rgb(203, 203, 204);
+
   padding: 4rem 4rem;
-  border-radius: 20px;
+  border-radius: 0px;
 }
 .todo-task h1{
  font-size: 2rem;
@@ -40,7 +24,7 @@
 
 .list{
   font-size: 1rem;
-  font-weight: bold;
+  
   padding: 10px;
   background-color: white ;
   margin-bottom: 10px;
@@ -49,6 +33,10 @@
   display: flex;
   align-items: center;
   border-radius:5px ;
+  
+}
+.list-task button{
+  margin-left: 10px;
 }
 .list button{
 color: rgb(139, 23, 5);
@@ -97,4 +85,10 @@ font-size: 8px;
    display: flex;
    gap: 10px;
 
+}
+.list button:first-child{
+  color: green;
+}
+.list .time button{
+  color: red;
 }

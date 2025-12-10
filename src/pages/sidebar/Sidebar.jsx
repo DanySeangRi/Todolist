@@ -21,8 +21,8 @@ const Sidebar = () => {
 const [toggle,setToggle] =useState(true)
   return (
        
-  <div>
-    <span className={`toggle ${toggle ?'open':'closed'}`} 
+  <>
+    <span className={`toggle ${toggle ?'open':'closed'} `} 
     onClick={()=>setToggle(!toggle)}>
       {
         toggle ? <VscLayoutSidebarLeft side={20}/>
@@ -46,19 +46,20 @@ const [toggle,setToggle] =useState(true)
         </div>
 
         <div className='list-navbar__addTask'>
-          <List icon={FaCirclePlus} name="Add Task" />
+          <List icon={FaCirclePlus} name="Add Task" to='./'/>
         </div>
 
         <div className='list-navbar__feature'>
-          <List icon={CiSearch} name="Search" />
+       
           <List icon={BsInbox} name="Inbox" />
           <List icon={IoToday} name="Today" />
           <List icon={SlCalender} name="Upcoming" />
-          <List icon={CiBoxList} name="Filter & Label" />
-          <List icon={CiCircleCheck} name="Checked" />
+          <List icon={CiBoxList} name="Filter & Label"  />
+          <List icon={CiCircleCheck} name="Checked" to='./checked' />
+  
         </div>
-      </nav>
-</div>
+    </nav>
+</>
 
 
   )
