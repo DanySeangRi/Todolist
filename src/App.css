@@ -5,3 +5,18 @@
   overflow: hidden;
 
 }
+*{
+  box-sizing: border-box;
+  margin: 0 ;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  list-style: none;
+  font-family: sans-serif;
+}
+.feature{
+  text-decoration: none;
+
+}
+
+

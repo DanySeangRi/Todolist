@@ -5,10 +5,6 @@ import { IoIosNotifications } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaCirclePlus } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
-import { BsInbox } from "react-icons/bs";
-import { SlCalender } from "react-icons/sl";
-import { IoToday } from "react-icons/io5";
-import { CiBoxList } from "react-icons/ci";
 import { CiCircleCheck } from "react-icons/ci";
 import React,{useState} from 'react'
 import { VscLayoutSidebarRight } from "react-icons/vsc";
@@ -21,8 +17,8 @@ const Sidebar = () => {
 const [toggle,setToggle] =useState(true)
   return (
        
-  <div>
-    <span className={`toggle ${toggle ?'open':'closed'}`} 
+  <>
+    <span className={`toggle ${toggle ?'open':'closed'} `} 
     onClick={()=>setToggle(!toggle)}>
       {
         toggle ? <VscLayoutSidebarLeft side={20}/>
@@ -46,19 +42,15 @@ const [toggle,setToggle] =useState(true)
         </div>
 
         <div className='list-navbar__addTask'>
-          <List icon={FaCirclePlus} name="Add Task" />
+          <List icon={FaCirclePlus} name="Add Task" to='./'/>
         </div>
 
         <div className='list-navbar__feature'>
-          <List icon={CiSearch} name="Search" />
-          <List icon={BsInbox} name="Inbox" />
-          <List icon={IoToday} name="Today" />
-          <List icon={SlCalender} name="Upcoming" />
-          <List icon={CiBoxList} name="Filter & Label" />
-          <List icon={CiCircleCheck} name="Checked" />
+          <List icon={CiSearch} name="Search" to='./search' />
+          <List icon={CiCircleCheck} name="Checked" to='./checked' />
         </div>
-      </nav>
-</div>
+    </nav>
+</>
 
 
   )
