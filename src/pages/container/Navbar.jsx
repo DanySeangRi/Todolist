@@ -9,18 +9,18 @@ const Navbar = (props) => {
   const name = props.name;
   return (
     <>
-     <div className='navbar '> 
+     <nav className='navbar '> 
       <div className='navbar-right'> 
           <p>{name}</p>
       </div>
       <div className='navbar-left  '>
          <List icon={CiShare1 } name="Search" /> 
          <List icon={CiBoxList } name="Display" />
-          <List icon={FaRegComments} name="" /> 
-          <List icon={ BiDotsHorizontal} name="" />
+         <List icon={FaRegComments}  /> 
+         <List icon={ BiDotsHorizontal} />
       </div> 
           
-    </div>
+    </nav>
     </>
   )
 }

@@ -5,10 +5,6 @@ import { IoIosNotifications } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaCirclePlus } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
-import { BsInbox } from "react-icons/bs";
-import { SlCalender } from "react-icons/sl";
-import { IoToday } from "react-icons/io5";
-import { CiBoxList } from "react-icons/ci";
 import { CiCircleCheck } from "react-icons/ci";
 import React,{useState} from 'react'
 import { VscLayoutSidebarRight } from "react-icons/vsc";
@@ -50,13 +46,8 @@ const [toggle,setToggle] =useState(true)
         </div>
 
         <div className='list-navbar__feature'>
-       
-          <List icon={BsInbox} name="Inbox" />
-          <List icon={IoToday} name="Today" />
-          <List icon={SlCalender} name="Upcoming" />
-          <List icon={CiBoxList} name="Filter & Label"  />
+          <List icon={CiSearch} name="Search" to='./search' />
           <List icon={CiCircleCheck} name="Checked" to='./checked' />
-  
         </div>
     </nav>
 </>

@@ -4,6 +4,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { CiCircleCheck } from "react-icons/ci";
 import Navbar from '../container/Navbar';
+import { RiEdit2Fill } from "react-icons/ri";
 const ToDoList = () => {
  const [task, setTask] = useState(() => {
   const saved = localStorage.getItem("tasks"); //this come from the setitem in useEffect 
@@ -16,6 +17,9 @@ const [newTask, setNewTask] = useState("");
   return saved ? JSON.parse(saved) : []
  })
 
+const [editIndex,setEditIndex] =useState(null);
+const [editText,setEditText] =useState("");
+
  useEffect(()=>{
   localStorage.setItem('checkedTasks',JSON.stringify(checkedTasks));
  },[checkedTasks]);
@@ -27,6 +31,11 @@ const [newTask, setNewTask] = useState("");
    setCheckedTasks([...checkedTasks,taskToChecked]) 
  }
 
+
+
+
+
+ 
 useEffect(() => {
   localStorage.setItem("tasks", JSON.stringify(task));
 }, [task]);
@@ -54,50 +63,108 @@ function addTask() {
   function deleteAll() {
     setTask([]);
   }
+ function startModify(index){
+  setEditIndex(index)
+  setEditText(task[index].text)
+ }
+
+
+ function saveModify(index) {
+    const updated = task.map((t, i) =>
+      i === index ? { ...t, text: editText } : t
+    );
+
+    setTask(updated);
+    setEditIndex(null);
+    setEditText("");
+  }
+
+ function cancelModify(){
+   setEditIndex(null)
+   setEditText("")
+ }
 
   return (
-<div className="todo-container ">
-    <Navbar name='My Project/'/>
-      <div className='todo-task '>
-        <div className='add-task'>
-          <h1>Today Task</h1>
-          <div className='add-input'>
-            <input 
-              type="text"
-              placeholder='Enter something..................'
-              value={newTask}
-              onChange={handleInputChange}
-              onKeyDown= {(e)=>
-                {if(e.key=='Enter'){
-                addTask();
-              }}}
-            />
-            <div className='input-add__delete'>
-              <button className='add-input__btn-add' onClick={addTask}>
-              <FaCirclePlus size={20}  />
-            </button>
-            <button className='add-input__btn-delete' onClick={deleteAll}>Delete All</button>
-            </div>
-          </div>
-        </div>
+<section className="todo">
+  <Navbar name="My Project/" />
 
-        <ol>
-          {task.map((t, index) => (
-            <div key={index} className='list'>
-              
-                
-                <span><button onClick={()=>handleChecked(index)}><CiCircleCheck/></button> {t.text} </span>
-            
-              <span className="time">{new Date(t.time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                <button className='delete-btn' onClick={() => deleteTask(index)}>
-                <MdDelete size={15} />
-              </button>
-              </span>
-            </div>
-          ))}
-        </ol>
+  <div className="todo__section">
+
+    <h1 className="todo__section-title">Today Task</h1>
+
+    <div className="todo__input-row">
+      <input
+        type="text"
+        className="todo__input"
+        placeholder="Enter something..."
+        value={newTask}
+        onChange={handleInputChange}
+        onKeyDown={(e) => e.key === 'Enter' && addTask()}
+      />
+
+      <div className="todo__input-group">
+        <button className="todo__btn todo__btn--add" onClick={addTask}>
+          <FaCirclePlus size={20} />
+        </button>
+
+        <button className="todo__btn todo__btn--delete-all" onClick={deleteAll}>
+          Delete All
+        </button>
       </div>
     </div>
+
+    <ol className="todo__list">
+      {task.map((t, index) => (
+        <div key={index} className="todo__item">
+
+          {/* Left section (checkbox + task text) */}
+          <span className="todo__item-text">
+            <button className='todo__item-text--checked'onClick={() => handleChecked(index)}>
+              <CiCircleCheck />
+            </button>
+
+            {editIndex === index ? (
+              <>
+                <input
+                  type="text"
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && saveModify(index)}
+                  autoFocus
+                />
+
+                <button className="todo__btn todo__btn--confirm" onClick={() => saveModify(index)}>
+                  Save
+                </button>
+
+                <button className="todo__btn todo__btn--cancel" onClick={cancelModify}>
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <>
+                {t.text}
+                <button className="todo__btn todo__btn--edit" onClick={() => startModify(index)}>
+                  <RiEdit2Fill /> Edit
+                </button>
+              </>
+            )}
+          </span>
+
+          {/* Right section (time + delete) */}
+          <span className="todo__item-time">
+            {new Date(t.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+
+            <button className="todo__btn todo__btn--delete" onClick={() => deleteTask(index)}>
+              <MdDelete size={15} />
+            </button>
+          </span>
+        </div>
+      ))}
+    </ol>
+  </div>
+</section>
+
   )
 }
 

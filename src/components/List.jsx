@@ -5,7 +5,7 @@ const List = (props) => {
   const to = props.to // vea yor domlai pi icon 1 1 
 
   return (
-    <NavLink to={to}
+    <NavLink to={to} 
       className='feature'>
       <button ><Icon size={20} /></button>
       <button>{name}</button>
