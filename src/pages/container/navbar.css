@@ -2,9 +2,22 @@
     display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 .navbar-left{
     display: flex;
   gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    margin-bottom: 20px;
+  }
+
+  .navbar-left {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 }
