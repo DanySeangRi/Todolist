@@ -120,7 +120,7 @@ function addTask() {
           {/* Left section (checkbox + task text) */}
           <span className="todo__item-text">
             <button className='todo__item-text--checked'onClick={() => handleChecked(index)}>
-              <CiCircleCheck />
+              <CiCircleCheck  size={20}/>
             </button>
 
             {editIndex === index ? (

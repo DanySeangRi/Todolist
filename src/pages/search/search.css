@@ -3,12 +3,62 @@
   padding: 16px 40px;
   overflow-y: auto;
 }
-.search input{
+.search input {
   border: 1px solid black;
-  width: 500px;
-  border-radius:20px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
   padding-left: 10px;
   margin-top: 10px;
-  height: 30px;
-  flex-shrink: 0;
+  height: 35px;
+  box-sizing: border-box;
+}
+.notComplete__task{
+ padding: 2rem 1rem;
+
+}
+.notComplete__task h1{
+  margin-bottom: 10px;
+}
+.todo__item-text p{
+color: red;
+}
+.complete-task{
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.336);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+ font-size: 1rem;
+}
+.complete-task-text {
+  display: flex;
+margin-left: 10px;
+gap: 10px;
+
+
+}
+.complete-task-text p{
+  color: rgb(4, 113, 4);
+}
+.not-found {
+  font-size: 1rem;
+  color: red;
+  padding: 2rem 0rem;
+}
+
+@media screen and (max-width:769px){
+  .todo__item {
+    font-size: 1rem;
+  }
+  .complete-task-text{
+    font-size: 1rem;
+  }
+  .title{
+    font-size: 1rem;
+  }
+ 
 }

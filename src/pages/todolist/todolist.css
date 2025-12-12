@@ -6,9 +6,7 @@
 }
 
 
-.todo__section {
-  padding: 4rem;
-}
+
 
 .todo__section-title {
   font-size: 2rem;
@@ -40,10 +38,11 @@
 
 .todo__input {
   width: 820px;
-  height: 30px;
+  height: 50px;
   border-radius: 5px;
    border: 1px solid black ;
    padding-left: 10px;
+   font-size: 1rem;
 }
 
 .todo__input:focus {
@@ -79,7 +78,9 @@
   border: 1px solid rgba(0, 0, 0, 0.336);
   border-radius: 5px;
   margin-bottom: 10px;
+  font-size: 1.5rem;
 }
+
 .todo__item-text--checked{
   color: green;
 }
