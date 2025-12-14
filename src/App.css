@@ -34,14 +34,4 @@
 }
 
 
-@media (max-width:426px){
-  .toggle.open ~ .todo{
-     display: none;
-  }
-  .toggle.open ~ .search{
-    display: none;
-  }
-  .toggle.open ~ .checked-container{
- display: none;
-  }
-}
+

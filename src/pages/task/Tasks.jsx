@@ -1,10 +1,9 @@
 import React, {useState, useEffect } from 'react'
 import Navbar from '../container/Navbar'
-import './search.css'
+import './tasks.css'
 import { CiSearch } from "react-icons/ci";
-import { MdDelete } from "react-icons/md";
-import { FaCirclePlus } from "react-icons/fa6";
-const Search = () => {
+
+const Tasks= () => {
   const [notComplete,SetComplete]=useState(()=>{
     const saved = localStorage.getItem('tasks');
     return saved ? JSON.parse(saved):[];
@@ -39,7 +38,7 @@ return item.text.toLowerCase().includes(query.toLowerCase())})
 
   return (
     <div className='search'>
-    <Navbar name ='Search/'/>
+    <Navbar name ='Tasks/'/>
     <h1>Search <CiSearch/> </h1>
     <input type="search"  placeholder='Search' 
     value={query}
@@ -60,10 +59,10 @@ return item.text.toLowerCase().includes(query.toLowerCase())})
     </span>
       </div>
     ))}
-
-     <div className=''> 
-      
+ 
+     <div> 
      <h1 className='title'>Complete task</h1>
+    
       {completeTasks.map((item,index)=>(
           <div key={index} className='complete-task'>
                 <span className='complete-task-text'>
@@ -79,4 +78,4 @@ return item.text.toLowerCase().includes(query.toLowerCase())})
   )
 }
 
-export default Search
+export default Tasks

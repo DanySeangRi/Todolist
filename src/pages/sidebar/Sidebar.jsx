@@ -10,7 +10,7 @@ import React,{useState} from 'react'
 import { VscLayoutSidebarRight } from "react-icons/vsc";
 import { VscLayoutSidebarLeft } from "react-icons/vsc";
 import List from '../../components/List';
-
+import { FaTasks } from "react-icons/fa";
 
 const Sidebar = () => {
  
@@ -46,7 +46,7 @@ const [toggle,setToggle] =useState(true)
         </div>
 
         <div className='list-navbar__feature'>
-          <List icon={CiSearch} name="Search" to='./search' />
+          <List icon={FaTasks} name="Tasks" to='./tasks' />
           <List icon={CiCircleCheck} name="Checked" to='./checked' />
         </div>
     </nav>
