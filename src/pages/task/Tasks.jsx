@@ -55,8 +55,10 @@ return item.text.toLowerCase().includes(query.toLowerCase())})
       <p>Not Complete</p>     
               {item.text}
      </span>
-      <span className="todo__item-time">{new Date(item.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-    </span>
+     <span className="todo__item-time">
+     {new Date(item.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+
+        </span>
       </div>
     ))}
  
@@ -69,7 +71,10 @@ return item.text.toLowerCase().includes(query.toLowerCase())})
                 <p>Completed</p>     
                  {item.text}
                 </span>
-                <span className="todo__item-time">{new Date(item.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                <span className="todo__item-time">
+                  {new Date(item.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+
+                </span>
           </div>
          ))}
      </div>

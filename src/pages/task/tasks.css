@@ -32,13 +32,15 @@ color: red;
   border-radius: 5px;
   margin-bottom: 10px;
   justify-content: space-between;
-  font-size: 1rem;
+ font-size: 1rem;
 }
 .complete-task-text {
-display: flex;
+  display: flex;
 margin-left: 10px;
 gap: 10px;
-
+flex-wrap: wrap;
+word-break: break-word;
+white-space: normal;
 
 }
 .complete-task-text p{
@@ -92,9 +94,15 @@ gap: 10px;
 
   .complete-task{
     font-size: 0.95rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
+ 
   .todo__item-time{
-    display: inline-block;
-    width: auto;
+    display: flex;
+    /* width: auto; */
+   
+    justify-content: flex-end;
   }
 }
