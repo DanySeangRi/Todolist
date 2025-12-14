@@ -32,10 +32,10 @@ color: red;
   border-radius: 5px;
   margin-bottom: 10px;
   justify-content: space-between;
- font-size: 1rem;
+  font-size: 1rem;
 }
 .complete-task-text {
-  display: flex;
+display: flex;
 margin-left: 10px;
 gap: 10px;
 
@@ -92,5 +92,9 @@ gap: 10px;
 
   .complete-task{
     font-size: 0.95rem;
+  }
+  .todo__item-time{
+    display: inline-block;
+    width: auto;
   }
 }
